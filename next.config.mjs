@@ -1,4 +1,5 @@
 import webpack from "webpack";
+const isProd = process.env.NODE_ENV === "production";
 
 const mode = process.env.BUILD_MODE ?? "standalone";
 console.log("[Next] build mode", mode);
@@ -33,6 +34,7 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
+  assetPrefix: isProd ? "https://chat2-static.hi-hi.cn" : undefined,
 };
 
 const CorsHeaders = [
