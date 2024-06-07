@@ -428,6 +428,7 @@ export function ChatActions(props: {
   hitBottom: boolean;
   uploading: boolean;
   setUserInput: (input: string) => void;
+  inputRef: React.RefObject<HTMLTextAreaElement>;
 }) {
   const config = useAppConfig();
   const navigate = useNavigate();
@@ -464,7 +465,10 @@ export function ChatActions(props: {
       return filteredModels;
     }
   }, [allModels]);
-  const [showModelSelector, setShowModelSelector] = useState(false);
+  const [showModelSelector, setShowModelSelector] = useState(
+    chatStore.currentSessionIndex === 0 &&
+      chatStore.currentSession().messages.length === 0,
+  );
   const [showUploadImage, setShowUploadImage] = useState(false);
 
   useEffect(() => {
@@ -610,6 +614,7 @@ export function ChatActions(props: {
               session.mask.syncGlobalConfig = false;
             });
             showToast(s[0]);
+            props.inputRef.current?.focus();
           }}
         />
       )}
@@ -1505,6 +1510,7 @@ function _Chat() {
           scrollToBottom={scrollToBottom}
           hitBottom={hitBottom}
           uploading={uploading}
+          inputRef={inputRef}
           setUserInput={setUserInput}
           showPromptHints={() => {
             // Click again to close
