@@ -584,6 +584,7 @@ export function ChatActions(props: {
             session.clearContextIndex = session.messages.length;
             session.memoryPrompt = ""; // will clear memory
             props.setUserInput(message);
+            setShowModelSelector(true);
           });
         }}
       />
