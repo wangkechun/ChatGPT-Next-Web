@@ -185,7 +185,7 @@ function getTopic(item: ChatSession): string {
           .map((v) => v.text)
           .join(",");
       }
-      const maxLength = 10;
+      const maxLength = 30;
       if (context.length > maxLength) {
         return context.slice(0, maxLength) + "...";
       }
