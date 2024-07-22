@@ -379,9 +379,9 @@ function ChatAction(props: {
       <div ref={iconRef} className={styles["icon"]}>
         {props.icon}
       </div>
-      <div className={styles["text"]} ref={textRef}>
+      {/* <div className={styles["text"]} ref={textRef}>
         {props.text}
-      </div>
+      </div> */}
     </div>
   );
 }
