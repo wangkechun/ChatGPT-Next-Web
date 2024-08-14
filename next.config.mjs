@@ -34,7 +34,7 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-  assetPrefix: isProd ? "https://chat2-static.hi-hi.cn" : undefined,
+  // assetPrefix: isProd ? "https://chat2-static.hi-hi.cn" : undefined,
 };
 
 const CorsHeaders = [
