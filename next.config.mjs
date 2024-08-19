@@ -99,4 +99,10 @@ if (mode !== "export") {
   };
 }
 
-export default nextConfig;
+import WithPWA from "next-pwa";
+const withPWA = WithPWA({
+  dest: "public",
+  dynamicStartUrl: false,
+});
+
+export default withPWA(nextConfig);
