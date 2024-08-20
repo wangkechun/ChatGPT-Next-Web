@@ -102,6 +102,7 @@ if (mode !== "export") {
 import WithPWA from "next-pwa";
 const withPWA = WithPWA({
   dest: "public",
+  cacheStartUrl: true,
   dynamicStartUrl: false,
 });
 
