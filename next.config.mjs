@@ -106,4 +106,4 @@ const withPWA = WithPWA({
   dynamicStartUrl: false,
 });
 
-export default withPWA(nextConfig);
+export default isProd ? withPWA(nextConfig) : nextConfig;

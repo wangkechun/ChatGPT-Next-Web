@@ -1533,7 +1533,10 @@ function _Chat() {
             id="chat-input"
             ref={inputRef}
             className={styles["chat-input"]}
-            placeholder={Locale.Chat.Input(submitKey)}
+            placeholder={
+              Locale.Chat.Input(submitKey) +
+              `, model: ${chatStore.currentSession().mask.modelConfig.model}`
+            }
             onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
             onKeyDown={onInputKeyDown}
