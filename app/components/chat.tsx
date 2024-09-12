@@ -402,9 +402,9 @@ export function ChatAction(props: {
       <div ref={iconRef} className={styles["icon"]}>
         {props.icon}
       </div>
-      <div className={styles["text"]} ref={textRef}>
+      {/* <div className={styles["text"]} ref={textRef}>
         {props.text}
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -452,6 +452,7 @@ export function ChatActions(props: {
   uploading: boolean;
   setShowShortcutKeyModal: React.Dispatch<React.SetStateAction<boolean>>;
   setUserInput: (input: string) => void;
+  inputRef: React.RefObject<HTMLTextAreaElement>;
 }) {
   const config = useAppConfig();
   const navigate = useNavigate();
@@ -632,11 +633,7 @@ export function ChatActions(props: {
         <Selector
           defaultSelectedValue={`${currentModel}@${currentProviderName}`}
           items={models.map((m) => ({
-            title: `${m.displayName}${
-              m?.provider?.providerName
-                ? " (" + m?.provider?.providerName + ")"
-                : ""
-            }`,
+            title: `${m.displayName}`,
             value: `${m.name}@${m?.provider?.providerName}`,
           }))}
           onClose={() => setShowModelSelector(false)}
@@ -658,6 +655,7 @@ export function ChatActions(props: {
             } else {
               showToast(model);
             }
+            props.inputRef.current?.focus();
           }}
         />
       )}
@@ -1904,6 +1902,7 @@ function _Chat() {
           scrollToBottom={scrollToBottom}
           hitBottom={hitBottom}
           uploading={uploading}
+          inputRef={inputRef}
           showPromptHints={() => {
             // Click again to close
             if (promptHints.length > 0) {
@@ -1930,7 +1929,10 @@ function _Chat() {
             id="chat-input"
             ref={inputRef}
             className={styles["chat-input"]}
-            placeholder={Locale.Chat.Input(submitKey)}
+            placeholder={
+              Locale.Chat.Input(submitKey) +
+              `, model: ${chatStore.currentSession().mask.modelConfig.model}`
+            }
             onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
             onKeyDown={onInputKeyDown}

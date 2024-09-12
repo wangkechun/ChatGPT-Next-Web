@@ -8,7 +8,7 @@ import {
   OnDragEndResponder,
 } from "@hello-pangea/dnd";
 
-import { useChatStore } from "../store";
+import { useChatStore, ChatSession } from "../store";
 
 import Locale from "../locales";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -141,7 +141,7 @@ export function ChatList(props: { narrow?: boolean }) {
           >
             {sessions.map((item, i) => (
               <ChatItem
-                title={item.topic}
+                title={getTopic(item)}
                 time={new Date(item.lastUpdate).toLocaleString()}
                 count={item.messages.length}
                 key={item.id}
@@ -170,4 +170,26 @@ export function ChatList(props: { narrow?: boolean }) {
       </Droppable>
     </DragDropContext>
   );
+}
+
+function getTopic(item: ChatSession): string {
+  for (let msg of item.messages) {
+    if (msg.role === "user") {
+      let context = "";
+      if (typeof msg.content === "string") {
+        context = msg.content;
+      } else {
+        context = msg.content
+          .filter((v) => v.type === "text")
+          .map((v) => v.text)
+          .join(",");
+      }
+      const maxLength = 30;
+      if (context.length > maxLength) {
+        return context.slice(0, maxLength) + "...";
+      }
+      return context.toString();
+    }
+  }
+  return item.topic;
 }
