@@ -1031,6 +1031,7 @@ function _Chat() {
     setPromptHints([]);
     if (!isMobileScreen) inputRef.current?.focus();
     setAutoScroll(true);
+    scrollDomToBottom();
   };
 
   const onPromptSelect = (prompt: RenderPrompt) => {
