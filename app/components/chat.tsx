@@ -453,6 +453,7 @@ export function ChatActions(props: {
   setShowShortcutKeyModal: React.Dispatch<React.SetStateAction<boolean>>;
   setUserInput: (input: string) => void;
   inputRef: React.RefObject<HTMLTextAreaElement>;
+  setUserInput: (input: string) => void;
 }) {
   const config = useAppConfig();
   const navigate = useNavigate();
@@ -619,6 +620,29 @@ export function ChatActions(props: {
               session.clearContextIndex = session.messages.length;
               session.memoryPrompt = ""; // will clear memory
             }
+          });
+        }}
+      />
+
+      <ChatAction
+        text={Locale.Chat.InputActions.ReOpen}
+        icon={<ResetIcon />}
+        onClick={() => {
+          chatStore.updateCurrentSession((session) => {
+            const message = session.messages
+              .filter(
+                (v, i) =>
+                  v.role === "user" &&
+                  (session.clearContextIndex
+                    ? i < session.clearContextIndex
+                    : true),
+              )
+              .map((v) => v.content)
+              .join("\n");
+            session.clearContextIndex = session.messages.length;
+            session.memoryPrompt = ""; // will clear memory
+            props.setUserInput(message);
+            setShowModelSelector(true);
           });
         }}
       />
@@ -1904,6 +1928,7 @@ function _Chat() {
           hitBottom={hitBottom}
           uploading={uploading}
           inputRef={inputRef}
+          setUserInput={setUserInput}
           showPromptHints={() => {
             // Click again to close
             if (promptHints.length > 0) {

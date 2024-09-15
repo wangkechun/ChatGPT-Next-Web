@@ -70,6 +70,7 @@ const en: LocaleType = {
       Prompt: "Prompts",
       Masks: "Masks",
       Clear: "Clear Context",
+      ReOpen: "重新发起",
       Settings: "Settings",
       UploadImage: "Upload Images",
     },
