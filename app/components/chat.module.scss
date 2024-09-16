@@ -286,6 +286,7 @@
   flex: 1;
   overflow: auto;
   overflow-x: hidden;
+  overflow-y: scroll;
   padding: 20px;
   padding-bottom: 40px;
   position: relative;
@@ -440,7 +441,8 @@
   word-break: break-word;
   border: var(--border-in-light);
   position: relative;
-  transition: all ease 0.3s;
+  transition: height linear 0.2s;
+  overflow-y: hidden;
 }
 
 .chat-message-item-image {

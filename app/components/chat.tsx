@@ -85,6 +85,7 @@ import Locale from "../locales";
 
 import { IconButton } from "./button";
 import styles from "./chat.module.scss";
+import { useRafInterval } from "ahooks";
 
 import {
   List,
@@ -1592,6 +1593,15 @@ function _Chat() {
     };
   }, [messages, chatStore, navigate]);
 
+  useRafInterval(() => {
+    document.querySelectorAll(".streaming").forEach((dom) => {
+      const height = (dom as HTMLDivElement).scrollHeight;
+      console.log("height", height);
+      const parent = dom.parentNode! as HTMLDivElement;
+      parent.style.height = `${height + 20}px`;
+    });
+  }, 200);
+
   return (
     <div className={styles.chat} key={session.id}>
       <div className="window-header" data-tauri-drag-region>
@@ -1852,55 +1862,60 @@ function _Chat() {
                       ))}
                     </div>
                   )}
-                  <div className={styles["chat-message-item"]}>
-                    <Markdown
-                      key={message.streaming ? "loading" : "done"}
-                      content={getMessageTextContent(message)}
-                      loading={
-                        (message.preview || message.streaming) &&
-                        message.content.length === 0 &&
-                        !isUser
-                      }
-                      //   onContextMenu={(e) => onRightClick(e, message)} // hard to use
-                      onDoubleClickCapture={() => {
-                        if (!isMobileScreen) return;
-                        setUserInput(getMessageTextContent(message));
-                      }}
-                      fontSize={fontSize}
-                      fontFamily={fontFamily}
-                      parentRef={scrollRef}
-                      defaultShow={i >= messages.length - 6}
-                    />
-                    {getMessageImages(message).length == 1 && (
-                      <img
-                        className={styles["chat-message-item-image"]}
-                        src={getMessageImages(message)[0]}
-                        alt=""
-                      />
-                    )}
-                    {getMessageImages(message).length > 1 && (
-                      <div
-                        className={styles["chat-message-item-images"]}
-                        style={
-                          {
-                            "--image-count": getMessageImages(message).length,
-                          } as React.CSSProperties
+                  <div
+                    className={styles["chat-message-item"]}
+                    key={message.streaming ? "streaming" : "normal"}
+                  >
+                    <div className={message.streaming ? "streaming" : ""}>
+                      <Markdown
+                        key={message.streaming ? "loading" : "done"}
+                        content={getMessageTextContent(message)}
+                        loading={
+                          (message.preview || message.streaming) &&
+                          message.content.length === 0 &&
+                          !isUser
                         }
-                      >
-                        {getMessageImages(message).map((image, index) => {
-                          return (
-                            <img
-                              className={
-                                styles["chat-message-item-image-multi"]
-                              }
-                              key={index}
-                              src={image}
-                              alt=""
-                            />
-                          );
-                        })}
-                      </div>
-                    )}
+                        //   onContextMenu={(e) => onRightClick(e, message)} // hard to use
+                        onDoubleClickCapture={() => {
+                          if (!isMobileScreen) return;
+                          setUserInput(getMessageTextContent(message));
+                        }}
+                        fontSize={fontSize}
+                        fontFamily={fontFamily}
+                        parentRef={scrollRef}
+                        defaultShow={i >= messages.length - 6}
+                      />
+                      {getMessageImages(message).length == 1 && (
+                        <img
+                          className={styles["chat-message-item-image"]}
+                          src={getMessageImages(message)[0]}
+                          alt=""
+                        />
+                      )}
+                      {getMessageImages(message).length > 1 && (
+                        <div
+                          className={styles["chat-message-item-images"]}
+                          style={
+                            {
+                              "--image-count": getMessageImages(message).length,
+                            } as React.CSSProperties
+                          }
+                        >
+                          {getMessageImages(message).map((image, index) => {
+                            return (
+                              <img
+                                className={
+                                  styles["chat-message-item-image-multi"]
+                                }
+                                key={index}
+                                src={image}
+                                alt=""
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className={styles["chat-message-action-date"]}>
