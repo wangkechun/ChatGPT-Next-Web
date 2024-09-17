@@ -430,7 +430,7 @@ function useScrollToBottom(
   // auto scroll
   useEffect(() => {
     if (autoScroll && !detach) {
-      // scrollDomToBottom();
+      scrollDomToBottom();
     }
   });
 
@@ -1596,9 +1596,11 @@ function _Chat() {
   useRafInterval(() => {
     document.querySelectorAll(".streaming").forEach((dom) => {
       const height = (dom as HTMLDivElement).scrollHeight;
-      console.log("height", height);
       const parent = dom.parentNode! as HTMLDivElement;
-      parent.style.height = `${height + 20}px`;
+      const newHeight = `${height + 20}px`;
+      if (parent.style.height != newHeight) {
+        parent.style.height = newHeight;
+      }
     });
   }, 200);
 

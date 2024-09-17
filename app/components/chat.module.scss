@@ -441,7 +441,7 @@
   word-break: break-word;
   border: var(--border-in-light);
   position: relative;
-  transition: height linear 0.2s;
+  transition: height ease-in-out 0.2s;
   overflow-y: hidden;
 }
 
