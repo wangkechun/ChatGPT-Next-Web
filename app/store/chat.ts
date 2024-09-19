@@ -1,4 +1,4 @@
-import { getMessageTextContent, trimTopic } from "../utils";
+import { copyToClipboard, getMessageTextContent, trimTopic } from "../utils";
 
 import { indexedDBStorage } from "@/app/utils/indexedDB-storage";
 import { nanoid } from "nanoid";
@@ -373,6 +373,20 @@ export const useChatStore = createPersistStore(
         const recentMessages = get().getMessagesWithMemory();
         const sendMessages = recentMessages.concat(userMessage);
         const messageIndex = get().currentSession().messages.length + 1;
+
+        if (modelConfig.model === "copy") {
+          get().updateCurrentSession((session) => {
+            const savedUserMessage = {
+              ...userMessage,
+              content: mContent,
+            };
+            session.messages = session.messages.concat([savedUserMessage]);
+          });
+          if (typeof mContent === "string") {
+            copyToClipboard(mContent);
+          }
+          return;
+        }
 
         // save user's and bot's message
         get().updateCurrentSession((session) => {
