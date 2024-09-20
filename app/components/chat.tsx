@@ -498,7 +498,9 @@ export function ChatActions(props: {
     );
     return model?.displayName ?? "";
   }, [models, currentModel, currentProviderName]);
-  const [showModelSelector, setShowModelSelector] = useState(false);
+  const [showModelSelector, setShowModelSelector] = useState(
+    localStorage.getItem("CLICK_NEW_CHAT") ? true : false,
+  );
   const [showPluginSelector, setShowPluginSelector] = useState(false);
   const [showUploadImage, setShowUploadImage] = useState(false);
 

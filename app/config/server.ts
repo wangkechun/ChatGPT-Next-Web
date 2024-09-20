@@ -1,6 +1,30 @@
 import md5 from "spark-md5";
 import { DEFAULT_MODELS, DEFAULT_GA_ID } from "../constant";
 
+const CUSTOM_MODELS = `
+-all
++gpt-4o-x20@OpenAI
++gpt-4o-cn-x6.25@OpenAI
++gpt-4o-cn2-x2.5@OpenAI
++gpt-4o-mini-x1.2@OpenAI
++gpt-4o-mini-cn-x0.375@OpenAI
++gpt-4o-mini-cn2-x0.45@OpenAI
++online-huge-x40@OpenAI
++online-large-x8@OpenAI
++online-small-x1.6@OpenAI
++claude-3.5-sonnet-x24@OpenAI
++gemini-flash-1.5-x0.3@OpenAI
++gemini-pro-1.5-x20@OpenAI
++o1-mini-x24@OpenAI
++o1-mini-cn-x6@OpenAI
++o1-preview-x120@OpenAI
++o1-preview-cn-x30@OpenAI
++bytedance/gpt-4o@OpenAI
+copy
+`
+  .replace(/\n/g, ",")
+  .trim();
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -114,7 +138,7 @@ export const getServerSideConfig = () => {
   }
 
   const disableGPT4 = !!process.env.DISABLE_GPT4;
-  let customModels = process.env.CUSTOM_MODELS ?? "";
+  let customModels = CUSTOM_MODELS;
   let defaultModel = process.env.DEFAULT_MODEL ?? "";
 
   if (disableGPT4) {

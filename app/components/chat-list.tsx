@@ -173,6 +173,9 @@ export function ChatList(props: { narrow?: boolean }) {
 }
 
 function getTopic(item: ChatSession): string {
+  if (item.topic !== Locale.Home.NewChat && item.topic !== "New Chat") {
+    return item.topic;
+  }
   for (let msg of item.messages) {
     if (msg.role === "user") {
       let context = "";

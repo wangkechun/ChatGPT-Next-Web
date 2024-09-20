@@ -29,7 +29,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { isIOS, useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
-import { showConfirm, Selector } from "./ui-lib";
+import { Selector } from "./ui-lib";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -314,6 +314,10 @@ export function SideBar(props: { className?: string }) {
             icon={<AddIcon />}
             text={shouldNarrow ? undefined : Locale.Home.NewChat}
             onClick={() => {
+              localStorage.setItem("CLICK_NEW_CHAT", "true");
+              setTimeout(() => {
+                localStorage.removeItem("CLICK_NEW_CHAT");
+              }, 100);
               if (config.dontShowMaskSplashScreen) {
                 chatStore.newSession();
                 navigate(Path.Chat);

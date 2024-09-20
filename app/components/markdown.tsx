@@ -3,7 +3,6 @@ import "katex/dist/katex.min.css";
 import RemarkMath from "remark-math";
 import RemarkBreaks from "remark-breaks";
 import RehypeKatex from "rehype-katex";
-import RemarkGfm from "remark-gfm";
 import RehypeHighlight from "rehype-highlight";
 import { useRef, useState, RefObject, useEffect, useMemo } from "react";
 import { copyToClipboard, useWindowSize } from "../utils";
@@ -261,7 +260,7 @@ function _MarkDownContent(props: { content: string }) {
 
   return (
     <ReactMarkdown
-      remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
+      remarkPlugins={[RemarkMath, RemarkBreaks]}
       rehypePlugins={[
         RehypeKatex,
         [
