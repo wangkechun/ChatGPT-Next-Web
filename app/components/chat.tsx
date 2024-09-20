@@ -1918,6 +1918,13 @@ function _Chat() {
                   </div>
 
                   <div className={styles["chat-message-action-date"]}>
+                    {renderTokenString(
+                      getMessageTextContent(message),
+                      message.model ||
+                        chatStore.currentSession().mask.modelConfig.model,
+                      isUser,
+                    ).join("|")}
+                    {"|"}
                     {isContext
                       ? Locale.Chat.IsContext
                       : message.date.toLocaleString()}
@@ -2041,4 +2048,32 @@ export function Chat() {
   const chatStore = useChatStore();
   const sessionIndex = chatStore.currentSessionIndex;
   return <_Chat key={sessionIndex}></_Chat>;
+}
+
+function calcToken(s: string) {
+  const t = s.replace(/[a-zA-Z]+ ?/g, "@");
+  const enWordCnt = (t.match(/@/g) || []).length;
+  const zhCnt = t.length - enWordCnt;
+  const n = Math.floor(zhCnt * 0.8) + enWordCnt;
+  return n;
+}
+
+function renderTokenString(s: string, model: string, isUser: boolean) {
+  let tokenNum = calcToken(s);
+  if (isUser) {
+    tokenNum += 90;
+  }
+  const tokenStr = `${tokenNum} Tokens`;
+  if (model.includes("-x")) {
+    let cost = (parseFloat(model.split("-x")[1]) * tokenNum) / 1e6;
+    if (!isUser) {
+      cost *= 4;
+    }
+    if (cost < 0.001) {
+      cost = 0.001;
+    }
+    const costStr = `${cost.toFixed(3)} ¥`;
+    return [tokenStr, costStr];
+  }
+  return [tokenStr];
 }

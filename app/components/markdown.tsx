@@ -316,9 +316,43 @@ export function Markdown(
     >
       {props.loading ? (
         <LoadingIcon />
-      ) : (
+      ) : isMarkdown(props.content) ? (
         <MarkdownContent content={props.content} />
+      ) : (
+        <span style={{ whiteSpace: "pre-wrap" }}>
+          {props.content.length > 4096
+            ? props.content.slice(0, 200) +
+              "\n....................\n" +
+              props.content.slice(-200)
+            : props.content}
+        </span>
       )}
     </div>
   );
+}
+
+function isMarkdown(text: string) {
+  if (text.length > 4096) {
+    return false;
+  }
+  const markdownPatterns = [
+    /^#{1,6}\s/gm, // Headers: #, ##, ###, etc.
+    /\*\*.*?\*\*/g, // Bold: **text**
+    /\*.*?\*/g, // Italics: *text*
+    /\[.*?\]\(.*?\)/g, // Links: [text](url)
+    /!\[.*?\]\(.*?\)/g, // Images: ![alt](url)
+    /^>\s/gm, // Blockquotes: >
+    /^-\s|\*\s|\+\s/gm, // Unordered lists: -, *, +
+    /^\d+\.\s/gm, // Ordered lists: 1., 2., 3., etc.
+    /`{1,3}[^`]+`{1,3}/g, // Inline code: `code` or ```code```
+    /^```[\s\S]*?^```/gm, // Code blocks: ```code```
+  ];
+  let count = 0;
+  markdownPatterns.map((pattern) => {
+    const matchs = text.match(pattern);
+    if (matchs) {
+      count += matchs.length;
+    }
+  });
+  return count > 0;
 }
