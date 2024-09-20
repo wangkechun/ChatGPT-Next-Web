@@ -15,8 +15,10 @@ const CUSTOM_MODELS = `
 +gemini-flash-1.5-x0.3@OpenAI
 +gemini-pro-1.5-x20@OpenAI
 +o1-mini-cn-x6@OpenAI
++o1-mini-cn3-xn0.1@OpenAI
 +o1-mini-x24@OpenAI
 +o1-preview-cn-x30@OpenAI
++o1-preview-cn3-xn0.3@OpenAI
 +o1-preview-x120@OpenAI
 +bytedance/gpt-4o@OpenAI
 copy

@@ -2072,6 +2072,9 @@ function renderTokenString(s: string, model: string, isUser: boolean) {
     if (cost < 0.001) {
       cost = 0.001;
     }
+    if (model.includes("-xn")) {
+      cost = parseFloat(model.split("-xn")[1]);
+    }
     const costStr = `${cost.toFixed(3)} ¥`;
     return [tokenStr, costStr];
   }
