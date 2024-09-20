@@ -8,7 +8,6 @@ const CUSTOM_MODELS = `
 +gpt-4o-cn2-x2.5@OpenAI
 +gpt-4o-mini-x1.2@OpenAI
 +gpt-4o-mini-cn-x0.375@OpenAI
-+gpt-4o-mini-cn2-x0.45@OpenAI
 +online-huge-x40@OpenAI
 +online-large-x8@OpenAI
 +online-small-x1.6@OpenAI
