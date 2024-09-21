@@ -70,10 +70,10 @@ export async function downloadAs(text: string, filename: string) {
     }
   } else {
     const element = document.createElement("a");
-    element.setAttribute(
-      "href",
-      "data:text/plain;charset=utf-8," + encodeURIComponent(text),
-    );
+    const blob = new Blob([text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    element.setAttribute("href", url);
     element.setAttribute("download", filename);
 
     element.style.display = "none";
@@ -82,6 +82,7 @@ export async function downloadAs(text: string, filename: string) {
     element.click();
 
     document.body.removeChild(element);
+    URL.revokeObjectURL(url);
   }
 }
 

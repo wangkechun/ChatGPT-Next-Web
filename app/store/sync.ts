@@ -65,7 +65,8 @@ export const useSyncStore = createPersistStore(
         : new Date().toLocaleString();
 
       const fileName = `Backup-${datePart}.json`;
-      downloadAs(JSON.stringify(state), fileName);
+      delete (state as any)["access-control"];
+      downloadAs(JSON.stringify(state, null, "\t"), fileName);
     },
 
     async import() {
