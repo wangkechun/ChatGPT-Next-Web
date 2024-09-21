@@ -298,6 +298,7 @@ export function Markdown(
     fontFamily?: string;
     parentRef?: RefObject<HTMLDivElement>;
     defaultShow?: boolean;
+    isUser?: boolean;
   } & React.DOMAttributes<HTMLDivElement>,
 ) {
   const mdRef = useRef<HTMLDivElement>(null);
@@ -316,7 +317,7 @@ export function Markdown(
     >
       {props.loading ? (
         <LoadingIcon />
-      ) : isMarkdown(props.content) ? (
+      ) : isMarkdown(props.content) || !props.isUser ? (
         <MarkdownContent content={props.content} />
       ) : (
         <span style={{ whiteSpace: "pre-wrap" }}>

@@ -1885,6 +1885,7 @@ function _Chat() {
                         fontFamily={fontFamily}
                         parentRef={scrollRef}
                         defaultShow={i >= messages.length - 6}
+                        isUser={isUser}
                       />
                       {getMessageImages(message).length == 1 && (
                         <img
