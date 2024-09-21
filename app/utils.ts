@@ -4,6 +4,7 @@ import Locale from "./locales";
 import { RequestMessage } from "./client/api";
 import { ServiceProvider, REQUEST_TIMEOUT_MS } from "./constant";
 import { fetch as tauriFetch, ResponseType } from "@tauri-apps/api/http";
+import FileSaver from "file-saver";
 
 export function trimTopic(topic: string) {
   // Fix an issue where double quotes still show in the Indonesian language
@@ -69,20 +70,8 @@ export async function downloadAs(text: string, filename: string) {
       showToast(Locale.Download.Failed);
     }
   } else {
-    const element = document.createElement("a");
     const blob = new Blob([text], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-
-    element.setAttribute("href", url);
-    element.setAttribute("download", filename);
-
-    element.style.display = "none";
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
-    URL.revokeObjectURL(url);
+    FileSaver.saveAs(blob, filename);
   }
 }
 
