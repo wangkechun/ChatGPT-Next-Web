@@ -501,3 +501,36 @@ export const PLUGINS = [
   { name: "Stable Diffusion", path: Path.Sd },
   { name: "Search Chat", path: Path.SearchChat },
 ];
+
+export const CUSTOM_MODELS_BUILTIN = `
+-all
++gpt-4o-cn2-x2.5@OpenAI
++gpt-4o-cn-x6.25@OpenAI
++gpt-4o-x20@OpenAI
++gpt-4o-mini-cn-x0.375@OpenAI
++gpt-4o-mini-x1.2@OpenAI
++o1-mini-cn-x6@OpenAI
++o1-mini-cn3-xn0.1@OpenAI
++o1-mini-x24@OpenAI
++o1-preview-cn-x30@OpenAI
++o1-preview-cn3-xn0.3@OpenAI
++o1-preview-x120@OpenAI
++online-huge-x40@OpenAI
++online-large-x8@OpenAI
++online-small-x1.6@OpenAI
++claude-3.5-sonnet-x24@OpenAI
++gemini-flash-1.5-x0.3@OpenAI
++gemini-pro-1.5-x20@OpenAI
++bytedance/gpt-4o@OpenAI
+copy
+`
+  .replace(/\n/g, ",")
+  .trim();
+
+export const MODELS_HIGHLIGHT = [
+  "gpt-4o-cn2-x2.5",
+  "o1-mini-cn-x6",
+  "online-large-x8",
+  "o1-preview-cn-x30",
+  "gpt-4o-mini-cn-x0.375",
+];

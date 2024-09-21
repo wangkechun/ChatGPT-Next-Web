@@ -653,10 +653,12 @@ export function ChatActions(props: {
 
       {showModelSelector && (
         <Selector
+          isModelList
           defaultSelectedValue={`${currentModel}@${currentProviderName}`}
           items={models.map((m) => ({
             title: `${m.displayName}`,
             value: `${m.name}@${m?.provider?.providerName}`,
+            subTitle: m.note,
           }))}
           onClose={() => setShowModelSelector(false)}
           onSelection={(s) => {

@@ -23,6 +23,7 @@ import React, {
   useRef,
 } from "react";
 import { IconButton } from "./button";
+import { CUSTOM_MODELS_BUILTIN, MODELS_HIGHLIGHT } from "../constant";
 
 export function Popover(props: {
   children: JSX.Element;
@@ -467,6 +468,7 @@ export function showImageModal(
 }
 
 export function Selector<T>(props: {
+  isModelList?: boolean;
   items: Array<{
     title: string;
     subTitle?: string;
@@ -501,17 +503,30 @@ export function Selector<T>(props: {
     }
   };
 
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <div className={styles["selector"]} onClick={() => props.onClose?.()}>
       <div className={styles["selector-content"]}>
         <List>
           {props.items.map((item, i) => {
             const selected = selectedValues.includes(item.value);
+            let dimmed = false;
+            if (
+              props.isModelList &&
+              !MODELS_HIGHLIGHT.includes(item.title) &&
+              CUSTOM_MODELS_BUILTIN.includes(item.title)
+            ) {
+              dimmed = true;
+              if (!showAll && !selected) {
+                return null;
+              }
+            }
             return (
               <ListItem
                 className={`${styles["selector-item"]} ${
                   item.disable && styles["selector-item-disabled"]
-                }`}
+                } ${dimmed && styles["selector-dimmed"]}`}
                 key={i}
                 title={item.title}
                 subTitle={item.subTitle}
@@ -538,6 +553,17 @@ export function Selector<T>(props: {
               </ListItem>
             );
           })}
+          {!showAll && (
+            <ListItem
+              title={"show all"}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowAll(true);
+              }}
+            >
+              <></>
+            </ListItem>
+          )}
         </List>
       </div>
     </div>

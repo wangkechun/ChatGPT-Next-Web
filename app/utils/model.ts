@@ -1,4 +1,4 @@
-import { DEFAULT_MODELS } from "../constant";
+import { DEFAULT_MODELS, CUSTOM_MODELS_BUILTIN } from "../constant";
 import { LLMModel } from "../client/api";
 
 const CustomSeq = {
@@ -50,6 +50,7 @@ export function collectModelTable(
       sorted: number;
       provider?: LLMModel["provider"]; // Marked as optional
       isDefault?: boolean;
+      note?: string;
     }
   > = {};
 
@@ -63,7 +64,7 @@ export function collectModelTable(
   });
 
   // server custom models
-  customModels
+  (CUSTOM_MODELS_BUILTIN + "," + customModels)
     .split(",")
     .filter((v) => !!v && v.length > 0)
     .forEach((m) => {
@@ -120,7 +121,29 @@ export function collectModelTable(
         }
       }
     });
-
+  Object.keys(modelTable).map((key) => {
+    const model = modelTable[key];
+    let notes = [];
+    if (model.name.includes("online")) {
+      notes.push("联网");
+    }
+    if (model.name.includes("o1")) {
+      notes.push("智能高");
+    }
+    if (model.name.includes("4o-cn2-x2.5")) {
+      notes.push("推荐");
+    }
+    if (model.name.includes("4o-mini") || model.name.includes("flash")) {
+      notes.push("便宜");
+    }
+    if (model.name.includes("o1-preview") || model.name.includes("huge")) {
+      notes.push("很贵");
+    }
+    if (model.name.includes("o1")) {
+      notes.push("不支持流式输出");
+    }
+    model.note = notes.join(" ");
+  });
   return modelTable;
 }
 
