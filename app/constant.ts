@@ -533,4 +533,5 @@ export const MODELS_HIGHLIGHT = [
   "online-large-x8",
   "o1-preview-cn-x30",
   "gpt-4o-mini-cn-x0.375",
+  "copy",
 ];
