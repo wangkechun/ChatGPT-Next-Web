@@ -513,7 +513,7 @@ export const CUSTOM_MODELS_BUILTIN = `
 +o1-mini-cn3-xn0.1@OpenAI
 +o1-mini-x24@OpenAI
 +o1-preview-cn-x30@OpenAI
-+o1-preview-cn3-xn0.3@OpenAI
++o1-preview-cn3-xn0.2@OpenAI
 +o1-preview-x120@OpenAI
 +online-huge-x40@OpenAI
 +online-large-x8@OpenAI
@@ -532,7 +532,7 @@ export const MODELS_HIGHLIGHT = [
   "gpt-4o-cn2-x2.5",
   "online-large-x8",
   "o1-mini-cn-x6",
-  "o1-preview-cn-x30",
+  "o1-preview-cn3-xn0.2",
   "claude-3-5-sonnet-cn2-x3",
   "gpt-4o-mini-cn-x0.375",
   "copy",
