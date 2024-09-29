@@ -387,6 +387,16 @@ export const useChatStore = createPersistStore(
           }
           return;
         }
+        if (typeof mContent === "string" && mContent.endsWith("\\")) {
+          get().updateCurrentSession((session) => {
+            const savedUserMessage = {
+              ...userMessage,
+              content: mContent.slice(0, mContent.length - 1),
+            };
+            session.messages = session.messages.concat([savedUserMessage]);
+          });
+          return;
+        }
 
         // save user's and bot's message
         get().updateCurrentSession((session) => {
