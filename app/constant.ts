@@ -523,6 +523,8 @@ export const CUSTOM_MODELS_BUILTIN = `
 +gemini-flash-1.5-x0.3@OpenAI
 +gemini-pro-1.5-x20@OpenAI
 +bytedance/gpt-4o@OpenAI
++aistudio_free/gemini-flash-1.5@OpenAI
++aistudio_free/gemini-pro-1.5@OpenAI
 copy
 `
   .replace(/\n/g, ",")
