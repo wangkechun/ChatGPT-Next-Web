@@ -522,7 +522,7 @@ export const CUSTOM_MODELS_BUILTIN = `
 +claude-3.5-sonnet-x24@OpenAI
 +gemini-flash-1.5-x0.6@OpenAI
 +gemini-flash-1.5-8b-x0.3@OpenAI
-+gemini-pro-1.5-x20@OpenAI
++gemini-pro-1.5-x10@OpenAI
 +bytedance/gpt-4o@OpenAI
 +aistudio_free/gemini-flash-1.5@OpenAI
 +aistudio_free/gemini-pro-1.5@OpenAI
