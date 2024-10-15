@@ -508,6 +508,7 @@ export const CUSTOM_MODELS_BUILTIN = `
 +gpt-4o-cn-x6.25@OpenAI
 +gpt-4o-x20@OpenAI
 +gpt-4o-mini-cn3-x0.12@OpenAI
++gpt-4o-mini-cn-x0.375@OpenAI
 +gpt-4o-mini-x1.2@OpenAI
 +o1-mini-cn-x6@OpenAI
 +o1-mini-cn3-xn0.1@OpenAI
