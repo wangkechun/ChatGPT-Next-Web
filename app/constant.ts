@@ -504,8 +504,8 @@ export const PLUGINS = [
 
 export const CUSTOM_MODELS_BUILTIN = `
 -all
-+gpt-4o-cn2-x2.5@OpenAI
 +gpt-4o-cn-x6.25@OpenAI
++gpt-4o-cn2-x2.5@OpenAI
 +gpt-4o-x20@OpenAI
 +gpt-4o-mini-cn3-x0.12@OpenAI
 +gpt-4o-mini-cn-x0.375@OpenAI
@@ -533,13 +533,13 @@ copy
   .trim();
 
 export const MODELS_HIGHLIGHT = [
-  "gpt-4o-cn2-x2.5",
+  "gpt-4o-cn2-x6.25",
   "gpt-4o-x20",
   "online-large-x8",
   "o1-mini-cn-x6",
   "o1-preview-cn3-xn0.2",
   "claude-3-5-sonnet-cn2-x3",
-  "gpt-4o-mini-cn3-x0.12",
+  "gpt-4o-mini-cn-x0.375",
   "gemini-flash-1.5-x0.6",
   "aistudio_free/gemini-pro-1.5",
 ];
