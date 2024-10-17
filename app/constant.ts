@@ -533,7 +533,7 @@ copy
   .trim();
 
 export const MODELS_HIGHLIGHT = [
-  "gpt-4o-cn2-x6.25",
+  "gpt-4o-cn-x6.25",
   "gpt-4o-x20",
   "online-large-x8",
   "o1-mini-cn-x6",
