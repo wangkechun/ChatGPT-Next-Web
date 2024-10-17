@@ -142,6 +142,18 @@ export function collectModelTable(
     if (model.name.includes("o1")) {
       notes.push("不支持流式输出");
     }
+    if (model.name.includes("sonnet")) {
+      notes.push("擅长代码");
+      notes.push("擅长文字生成");
+    }
+    if (model.name.includes("cn")) {
+      notes.push("不可信");
+    } else {
+      notes.push("可信");
+    }
+    if (model.name.includes("free")) {
+      notes.push("免费");
+    }
     model.note = notes.join(" ");
   });
   return modelTable;
