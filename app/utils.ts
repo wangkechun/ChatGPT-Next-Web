@@ -246,8 +246,7 @@ export function isVisionModel(model: string) {
   const visionKeywords = [
     "vision",
     "claude-3",
-    "gemini-1.5-pro",
-    "gemini-1.5-flash",
+    "gemini",
     "gpt-4o",
     "gpt-4o-mini",
   ];
