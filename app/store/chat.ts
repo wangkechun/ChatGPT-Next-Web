@@ -16,7 +16,6 @@ import {
   DEFAULT_SYSTEM_TEMPLATE,
   KnowledgeCutOffDate,
   StoreKey,
-  SUMMARIZE_MODEL,
 } from "../constant";
 import Locale, { getLang } from "../locales";
 import { isDalle3, safeLocalStorage } from "../utils";
@@ -101,10 +100,6 @@ function createEmptySession(): ChatSession {
 
     mask: createEmptyMask(),
   };
-}
-
-function getSummarizeModel(currentModel: string) {
-  return SUMMARIZE_MODEL;
 }
 
 function countMessages(msgs: ChatMessage[]) {
@@ -387,7 +382,10 @@ export const useChatStore = createPersistStore(
           }
           return;
         }
-        if (typeof mContent === "string" && mContent.endsWith("\\")) {
+        if (
+          typeof mContent === "string" &&
+          (mContent.endsWith("\\") || mContent.endsWith("/"))
+        ) {
           get().updateCurrentSession((session) => {
             const savedUserMessage = {
               ...userMessage,
