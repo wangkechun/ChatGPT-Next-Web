@@ -69,7 +69,7 @@ export const DEFAULT_CONFIG = {
     sendMemory: false,
     historyMessageCount: 4,
     compressMessageLengthThreshold: 1000,
-    compressModel: "gpt-4o-mini" as ModelType,
+    compressModel: "gemini-flash-1.5-8b-0.3" as ModelType,
     compressProviderName: "OpenAI" as ServiceProvider,
     enableInjectSystemPrompts: true,
     template: config?.template ?? DEFAULT_INPUT_TEMPLATE,

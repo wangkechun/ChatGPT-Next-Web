@@ -685,13 +685,13 @@ export const useChatStore = createPersistStore(
            **/
           const { max_tokens, ...modelcfg } = modelConfig;
           api.llm.chat({
-            messages: toBeSummarizedMsgs.concat(
+            messages: [
               createMessage({
                 role: "system",
                 content: Locale.Store.Prompt.Summarize,
                 date: "",
               }),
-            ),
+            ].concat(toBeSummarizedMsgs),
             config: {
               ...modelcfg,
               stream: true,

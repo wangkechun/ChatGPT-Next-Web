@@ -632,7 +632,7 @@ export function ChatActions(props: {
                 (v, i) =>
                   v.role === "user" &&
                   (session.clearContextIndex
-                    ? i < session.clearContextIndex
+                    ? i >= session.clearContextIndex
                     : true),
               )
               .map((v) => v.content)
@@ -2063,10 +2063,10 @@ function calcToken(s: string) {
 
 function renderTokenString(s: string, model: string, isUser: boolean) {
   let tokenNum = calcToken(s);
+  const tokenStr = `${tokenNum} Tokens`;
   if (isUser) {
     tokenNum += 90;
   }
-  const tokenStr = `${tokenNum} Tokens`;
   if (model.includes("-x")) {
     let cost = (parseFloat(model.split("-x")[1]) * tokenNum) / 1e6;
     if (!isUser) {
