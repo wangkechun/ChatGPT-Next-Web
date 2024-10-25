@@ -1930,6 +1930,10 @@ function _Chat() {
                     {"|"}
                     {isContext
                       ? Locale.Chat.IsContext
+                      : userInput === message.content &&
+                        i === messages.length - 1
+                      ? message.model ||
+                        chatStore.currentSession().mask.modelConfig.model
                       : message.date.toLocaleString()}
                   </div>
                 </div>
@@ -1979,8 +1983,8 @@ function _Chat() {
             ref={inputRef}
             className={styles["chat-input"]}
             placeholder={
-              Locale.Chat.Input(submitKey) +
-              `, model: ${chatStore.currentSession().mask.modelConfig.model}`
+              `Model: ${chatStore.currentSession().mask.modelConfig.model}\n` +
+              Locale.Chat.Input(submitKey)
             }
             onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
