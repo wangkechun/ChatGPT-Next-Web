@@ -504,15 +504,15 @@ export const PLUGINS = [
 
 export const CUSTOM_MODELS_BUILTIN = `
 -all
-+gpt-4o-cn-x6.25@OpenAI
-+gpt-4o-cn2-x2.5@OpenAI
 +gpt-4o-cna1-x0.25@OpenAI
++gpt-4o-cn2-x2.5@OpenAI
++gpt-4o-cn-x6.25@OpenAI
 +gpt-4o-x20@OpenAI
 +claude-3-5-sonnet-cn2-x3@OpenAI
 +claude-3.5-sonnet-x24@OpenAI
 +gemini-flash-1.5-x0.6@OpenAI
-+gemini-flash-1.5-8b-x0.3@OpenAI
 +gemini-1.5-flash-cna0-x0.08@OpenAI
++gemini-flash-1.5-8b-x0.3@OpenAI
 +gemini-pro-1.5-x10@OpenAI
 +gpt-4o-mini-cn3-x0.12@OpenAI
 +gpt-4o-mini-cn-x0.375@OpenAI
@@ -536,12 +536,12 @@ copy
   .trim();
 
 export const MODELS_HIGHLIGHT = [
-  "gpt-4o-cn-x6.25",
+  "gpt-4o-cna1-x0.25",
   "gpt-4o-x20",
-  "online-large-x8",
-  "o1-mini-cn-x6",
   "claude-3.5-sonnet-x24",
-  "o1-preview-cn3-xn0.2",
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
+  "o1-mini-cn-x6",
+  "o1-preview-cn3-xn0.2",
+  "online-large-x8",
 ];
