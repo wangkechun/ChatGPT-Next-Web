@@ -506,14 +506,17 @@ export const CUSTOM_MODELS_BUILTIN = `
 -all
 +gpt-4o-cn-x6.25@OpenAI
 +gpt-4o-cn2-x2.5@OpenAI
++gpt-4o-cna1-x0.25@OpenAI
 +gpt-4o-x20@OpenAI
 +claude-3-5-sonnet-cn2-x3@OpenAI
 +claude-3.5-sonnet-x24@OpenAI
 +gemini-flash-1.5-x0.6@OpenAI
 +gemini-flash-1.5-8b-x0.3@OpenAI
++gemini-1.5-flash-cna0-x0.08@OpenAI
 +gemini-pro-1.5-x10@OpenAI
 +gpt-4o-mini-cn3-x0.12@OpenAI
 +gpt-4o-mini-cn-x0.375@OpenAI
++gpt-4o-mini-cna1-x0.015@OpenAI
 +gpt-4o-mini-x1.2@OpenAI
 +o1-mini-cn-x6@OpenAI
 +o1-mini-cn3-xn0.1@OpenAI
