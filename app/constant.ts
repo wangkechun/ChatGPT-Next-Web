@@ -514,6 +514,7 @@ export const CUSTOM_MODELS_BUILTIN = `
 +gemini-1.5-flash-cna0-x0.08@OpenAI
 +gemini-flash-1.5-8b-x0.3@OpenAI
 +gemini-pro-1.5-x10@OpenAI
++gemini-1.5-pro-cna0-x1.26@OpenAI
 +gpt-4o-mini-cn3-x0.12@OpenAI
 +gpt-4o-mini-cn-x0.375@OpenAI
 +gpt-4o-mini-cna1-x0.015@OpenAI
