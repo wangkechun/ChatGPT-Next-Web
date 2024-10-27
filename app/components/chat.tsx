@@ -1921,12 +1921,16 @@ function _Chat() {
                   </div>
 
                   <div className={styles["chat-message-action-date"]}>
-                    {renderTokenString(
-                      getMessageTextContent(message),
-                      message.model ||
-                        chatStore.currentSession().mask.modelConfig.model,
-                      isUser,
-                    ).join("|")}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: renderTokenString(
+                          getMessageTextContent(message),
+                          message.model ||
+                            chatStore.currentSession().mask.modelConfig.model,
+                          isUser,
+                        ).join("|"),
+                      }}
+                    ></span>
                     {"|"}
                     {isContext
                       ? Locale.Chat.IsContext
@@ -2082,7 +2086,13 @@ function renderTokenString(s: string, model: string, isUser: boolean) {
     if (model.includes("-xn")) {
       cost = parseFloat(model.split("-xn")[1]);
     }
-    const costStr = `${cost.toFixed(3)} ¥`;
+    if (cost <= 0.01) {
+      return [tokenStr];
+    }
+    let costStr = `${cost.toFixed(3)} ¥`;
+    if (cost > 0.1) {
+      costStr = `<b>${costStr}</b>`;
+    }
     return [tokenStr, costStr];
   }
   return [tokenStr];

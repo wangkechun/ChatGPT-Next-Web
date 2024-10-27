@@ -517,6 +517,10 @@
   z-index: 1;
 }
 
+.chat-message-action-date b{
+  color: red;
+}
+
 .chat-message-user>.chat-message-container>.chat-message-item {
   background-color: var(--second);
 
