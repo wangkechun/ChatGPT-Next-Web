@@ -314,6 +314,10 @@ export function SideBar(props: { className?: string }) {
               text={"Quick"}
               style={{ marginRight: 15 }}
               onClick={() => {
+                localStorage.setItem("CLICK_QUICK", "true");
+                setTimeout(() => {
+                  localStorage.removeItem("CLICK_QUICK");
+                }, 2000);
                 if (config.dontShowMaskSplashScreen) {
                   chatStore.newSession();
                   navigate(Path.Chat);
