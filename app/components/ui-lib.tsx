@@ -522,11 +522,18 @@ export function Selector<T>(props: {
                 return null;
               }
             }
+            let hiddenLine =
+              props.isModelList &&
+              showAll &&
+              i < props.items.length - 1 &&
+              modelKind(item.title) === modelKind(props.items[i + 1].title);
             return (
               <ListItem
                 className={`${styles["selector-item"]} ${
                   item.disable && styles["selector-item-disabled"]
-                } ${dimmed && styles["selector-dimmed"]}`}
+                } ${dimmed && styles["selector-dimmed"]} ${
+                  hiddenLine && styles["hidden-line"]
+                }`}
                 key={i}
                 title={item.title}
                 subTitle={item.subTitle}
@@ -569,6 +576,24 @@ export function Selector<T>(props: {
     </div>
   );
 }
+
+function modelKind(name: string) {
+  for (let kind of [
+    "gpt-4o-mini",
+    "gpt-4o",
+    "claude",
+    "gemini",
+    "o1-mini",
+    "o1-preview",
+    "online",
+  ]) {
+    if (name.includes(kind)) {
+      return kind;
+    }
+  }
+  return name;
+}
+
 export function FullScreen(props: any) {
   const { children, right = 10, top = 10, ...rest } = props;
   const ref = useRef<HTMLDivElement>();

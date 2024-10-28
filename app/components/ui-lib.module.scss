@@ -319,6 +319,10 @@
     opacity: 0.6;
   }
 
+  .hidden-line{
+    border-bottom: none;
+  }
+
   &-content {
     min-width: 300px;
     .list {

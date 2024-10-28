@@ -508,6 +508,7 @@ export const CUSTOM_MODELS_BUILTIN = `
 +gpt-4o-cn2-x2.5
 +gpt-4o-cn-x6.25
 +gpt-4o-x20
++bytedance/gpt-4o
 +claude-3-5-sonnet-20241022-cna2-x9
 +claude-3-5-sonnet-20241022-cn-x9
 +claude-3.5-sonnet-x24
@@ -534,7 +535,6 @@ export const CUSTOM_MODELS_BUILTIN = `
 +online-huge-x40
 +online-large-x8
 +online-small-x1.6
-+bytedance/gpt-4o
 copy
 `
   .replace(/\n/g, ",")
