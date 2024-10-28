@@ -124,42 +124,19 @@ export function collectModelTable(
   Object.keys(modelTable).map((key) => {
     const model = modelTable[key];
     let notes = [];
-    if (model.name.includes("online")) {
-      notes.push("联网");
-    }
-    if (model.name.includes("o1")) {
-      notes.push("智能高");
-    }
-    if (model.name.includes("4o-cn2-x2.5")) {
-      notes.push("推荐");
-    }
-    if (model.name.includes("4o-mini") || model.name.includes("flash")) {
-      notes.push("便宜");
-    }
-    if (model.name.includes("o1-preview") || model.name.includes("huge")) {
-      notes.push("很贵");
-    }
-    if (model.name.includes("o1")) {
-      notes.push("慢");
-    }
-    if (model.name.includes("sonnet")) {
-      notes.push("擅长代码");
-      notes.push("擅长文字生成");
-    }
     if (model.name.includes("cn") || model.name.includes("free")) {
       notes.push("不可信");
     } else {
       notes.push("可信");
     }
-    if (model.name.includes("free")) {
-      notes.push("免费");
+    if (model.name.includes("online")) {
+      notes.push("联网");
     }
-    if (model.name.includes("cn3")) {
-      notes.push("逆向");
-    } else if (model.name.includes("cn2")) {
-      notes.push("Azure");
-    } else if (model.name.includes("cn")) {
-      notes.push("官网");
+    if (model.name.includes("flash")) {
+      notes.push("很快");
+    }
+    if (model.name.includes("o1")) {
+      notes.push("慢");
     }
     model.note = notes.join(" ");
   });
