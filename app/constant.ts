@@ -507,8 +507,10 @@ export const CUSTOM_MODELS_BUILTIN = `
 +gpt-4o-cn-x6.25@OpenAI
 +gpt-4o-cn2-x2.5@OpenAI
 +gpt-4o-x20@OpenAI
-+claude-3-5-sonnet-cn2-x3@OpenAI
 +claude-3.5-sonnet-x24@OpenAI
++claude-3-5-sonnet-20241022-cna2-x9@OpenAI
++claude-3-5-sonnet-20241022-cn-x9@OpenAI
++claude-3-5-sonnet-20240620-cn2-x3@OpenAI
 +gemini-flash-1.5-x0.6@OpenAI
 +gemini-flash-1.5-8b-x0.3@OpenAI
 +gemini-pro-1.5-x10@OpenAI
