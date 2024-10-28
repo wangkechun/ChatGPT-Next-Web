@@ -322,7 +322,7 @@
   &-content {
     min-width: 300px;
     .list {
-      max-height: 90vh;
+      max-height: calc(80vh - 20px);
       overflow-x: hidden;
       overflow-y: auto;
 
