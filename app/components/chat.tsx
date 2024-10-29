@@ -538,11 +538,11 @@ export function ChatActions(props: {
         session.mask.modelConfig.providerName = nextModel?.provider
           ?.providerName as ServiceProvider;
       });
-      showToast(
-        nextModel?.provider?.providerName == "ByteDance"
-          ? nextModel.displayName
-          : nextModel.name,
-      );
+      // showToast(
+      //   nextModel?.provider?.providerName == "ByteDance"
+      //     ? nextModel.displayName
+      //     : nextModel.name,
+      // );
     }
   }, [chatStore, currentModel, models]);
 
