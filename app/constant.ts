@@ -502,47 +502,46 @@ export const PLUGINS = [
   { name: "Search Chat", path: Path.SearchChat },
 ];
 
-export const CUSTOM_MODELS_BUILTIN = `
--all
-+gpt-4o-cna1-x0.25
-+gpt-4o-cn2-x2.5
-+gpt-4o-cn-x6.25
-+gpt-4o-x20
-+bytedance/gpt-4o
-+claude-3-5-sonnet-20241022-cna2-x9
-+claude-3-5-sonnet-20241022-cn-x9
-+claude-3.5-sonnet-x24
-+claude-3-5-sonnet-20240620-cn2-x3
-+gemini-flash-1.5-8b-x0.3
-+gemini-flash-1.5-x0.6
-+gemini-1.5-flash-cna0-x0.08
-+gemini-1.5-pro-cna0-x1.26
-+gemini-pro-1.5-x10
-+aistudio_free/gemini-flash-1.5
-+aistudio_free/gemini-pro-1.5
-+gpt-4o-mini-cna1-x0.015
-+gpt-4o-mini-cn3-x0.12
-+gpt-4o-mini-cn-x0.375
-+gpt-4o-mini-x1.2
-+o1-mini-cna1-x0.3
-+o1-mini-cn-x6
-+o1-mini-cn3-xn0.1
-+o1-mini-x24
-+o1-preview-cna1-x1.5
-+o1-preview-cn3-xn0.2
-+o1-preview-cn-x30
-+o1-preview-x120
-+online-huge-x40
-+online-large-x8
-+online-small-x1.6
-copy
-`
-  .replace(/\n/g, ",")
-  .trim();
+export const CUSTOM_MODELS_BUILTIN = [
+  "-all",
+  "gpt-4o-cn2-x2.5",
+  "gpt-4o-cn-x6.25",
+  "gpt-4o-cna1-x0.25",
+  "gpt-4o-x20",
+  "bytedance/gpt-4o",
+  "claude-3-5-sonnet-20241022-cna2-x9",
+  "claude-3-5-sonnet-20241022-cn-x9",
+  "claude-3.5-sonnet-x24",
+  "claude-3-5-sonnet-20240620-cn2-x3",
+  "gemini-flash-1.5-8b-x0.3",
+  "gemini-flash-1.5-x0.6",
+  "gemini-1.5-flash-cna0-x0.08",
+  "gemini-1.5-pro-cna0-x1.26",
+  "gemini-pro-1.5-x10",
+  "aistudio_free/gemini-flash-1.5",
+  "aistudio_free/gemini-pro-1.5",
+  "gpt-4o-mini-cna1-x0.015",
+  "gpt-4o-mini-cn3-x0.12",
+  "gpt-4o-mini-cn-x0.375",
+  "gpt-4o-mini-x1.2",
+  "o1-mini-cna1-x0.3",
+  "o1-mini-cn-x6",
+  "o1-mini-cn3-xn0.1",
+  "o1-mini-x24",
+  "o1-preview-cna1-x1.5",
+  "o1-preview-cn3-xn0.2",
+  "o1-preview-cn-x30",
+  "o1-preview-x120",
+  "online-huge-x40",
+  "online-large-x8",
+  "online-small-x1.6",
+  "copy",
+].join(",");
 
 export const MODELS_HIGHLIGHT = [
   "gpt-4o-cn2-x2.5",
   "gpt-4o-x20",
+  "bytedance/gpt-4o",
   "claude-3-5-sonnet-20241022-cna2-x9",
   "gemini-flash-1.5-x0.6",
   "gemini-1.5-pro-cna0-x1.26",
