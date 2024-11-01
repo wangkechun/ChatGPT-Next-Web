@@ -503,7 +503,7 @@ export function Selector<T>(props: {
     }
   };
 
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
 
   return (
     <div className={styles["selector"]} onClick={() => props.onClose?.()}>
