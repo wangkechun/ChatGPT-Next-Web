@@ -545,6 +545,8 @@ export const MODELS_HIGHLIGHT = [
   "claude-3-5-sonnet-20241022-cn-x9",
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
+  "aistudio_free/gemini-flash-1.5",
+  "aistudio_free/gemini-pro-1.5",
   "o1-mini-cn-x6",
   "o1-preview-cn3-xn0.2",
   "online-large-x8",
