@@ -561,7 +561,7 @@ export const MODELS_HIGHLIGHT = [
   "gpt-4o-cn2-x2.5",
 
   "claude-3.5-sonnet-x24",
-  "claude-3-5-sonnet-20241022-cna0-x9",
+  "claude-3-5-sonnet-20241022-cn-x9",
 
   "o1-mini-cna3-x3.6",
   "o1-mini-x24",
