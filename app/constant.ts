@@ -504,37 +504,37 @@ export const PLUGINS = [
 
 export const CUSTOM_MODELS_BUILTIN = [
   "-all",
-  "gpt-4o-cn2-x2.5",
-  "gpt-4o-cn-x6.25",
-  "gpt-4o-cnad-x2.5",
   "gpt-4o-x20",
   "bytedance/gpt-4o",
 
-  "claude-3.5-sonnet-x24",
-  // "claude-3-5-sonnet-20241022-cna0-x9",
-  // "claude-3-5-sonnet-20241022-cna8-x24",
-  // "claude-3-5-sonnet-20241022-cn-x9",
-  "claude-3-5-sonnet-20240620-cn2-x3",
+  "gpt-4o-cn2-x2.5",
+  "gpt-4o-cn-x6.25",
 
-  "gemini-flash-1.5-8b-x0.3",
-  "gemini-flash-1.5-x0.6",
-  "gemini-1.5-flash-cna2-x0.04",
-  "gemini-1.5-pro-cna2-x1.2",
-  "gemini-pro-1.5-x10",
-  "aistudio_free/gemini-flash-1.5",
-  "aistudio_free/gemini-pro-1.5",
+  "gpt-4o-cna1-x1.8",
+  // "gpt-4o-cna2-x1.5",
+  "gpt-4o-cna3-x3",
+  "gpt-4o-cnaps-x5",
+
+  "claude-3.5-sonnet-x24",
+  "claude-3-5-sonnet-20241022-cna0-x9",
+  "claude-3-5-sonnet-20241022-cn-x9",
+  "claude-3-5-sonnet-20240620-cn2-x3",
 
   "gpt-4o-mini-cnad-x0.15",
   "gpt-4o-mini-cn3-x0.12",
   "gpt-4o-mini-cn-x0.375",
   "gpt-4o-mini-x1.2",
 
-  "o1-mini-cnad-x3",
+  // "o1-mini-cna1-x2.2",
+  "o1-mini-cna3-x3.6",
+  "o1-mini-cnaps-x6",
   "o1-mini-cn-x6",
   "o1-mini-cn3-xn0.1",
   "o1-mini-x24",
 
-  "o1-preview-cnad-x15",
+  // "o1-preview-cna1-x11",
+  "o1-preview-cna3-x18",
+  "o1-preview-cnaps-x30",
   "o1-preview-cn3-xn0.2",
   "o1-preview-cn-x30",
   "o1-preview-x120",
@@ -542,19 +542,34 @@ export const CUSTOM_MODELS_BUILTIN = [
   "online-huge-x40",
   "online-large-x8",
   "online-small-x1.6",
+
+  "gemini-flash-1.5-8b-x0.3",
+  "gemini-flash-1.5-x0.6",
+  "gemini-1.5-flash-cna2-x0.04",
+  "gemini-1.5-pro-cna2-x0.7",
+  "gemini-pro-1.5-x10",
+  "aistudio_free/gemini-flash-1.5",
+  "aistudio_free/gemini-pro-1.5",
+
   "copy",
 ].join(",");
 
 export const MODELS_HIGHLIGHT = [
-  "gpt-4o-cn2-x2.5",
   "gpt-4o-x20",
   "bytedance/gpt-4o",
-  "claude-3-5-sonnet-20240620-cn2-x3",
+  "gpt-4o-cn2-x2.5",
+
   "claude-3.5-sonnet-x24",
+  "claude-3-5-sonnet-20241022-cna0-x9",
+
+  "o1-mini-cna3-x3.6",
+  "o1-mini-x24",
+  "o1-preview-cna3-x18",
+  "o1-preview-cn3-xn0.2",
+  "online-large-x8",
+
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
+  "gemini-1.5-pro-cna2-x0.7",
   "aistudio_free/gemini-pro-1.5",
-  "o1-mini-cnad-x3",
-  "o1-preview-cnad-x15",
-  "online-large-x8",
 ];
