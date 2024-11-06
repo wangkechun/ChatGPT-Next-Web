@@ -536,6 +536,7 @@ export const CUSTOM_MODELS_BUILTIN = [
   "o1-preview-cna3-x18",
   "o1-preview-cnaps-x30",
   "o1-preview-cn3-xn0.2",
+  "o1-preview-all-cna2-xn0.18",
   "o1-preview-cn-x30",
   "o1-preview-x120",
 
