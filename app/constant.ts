@@ -551,6 +551,7 @@ export const CUSTOM_MODELS_BUILTIN = [
   "gemini-pro-1.5-x10",
   "aistudio_free/gemini-flash-1.5",
   "aistudio_free/gemini-pro-1.5",
+  "aistudio_free/gemini-exp-1114",
 
   "copy",
 ].join(",");
@@ -561,7 +562,6 @@ export const MODELS_HIGHLIGHT = [
   "gpt-4o-cn2-x2.5",
 
   "claude-3.5-sonnet-x24",
-  "claude-3-5-sonnet-20241022-cn-x9",
 
   "o1-mini-cna3-x3.6",
   "o1-mini-x24",
@@ -571,6 +571,6 @@ export const MODELS_HIGHLIGHT = [
 
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
-  "gemini-1.5-pro-cna2-x0.7",
   "aistudio_free/gemini-pro-1.5",
+  "aistudio_free/gemini-exp-1114",
 ];
