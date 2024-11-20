@@ -516,9 +516,9 @@ export const CUSTOM_MODELS_BUILTIN = [
   "gpt-4o-cnaps-x5",
 
   "claude-3.5-sonnet-x24",
-  "claude-3-5-sonnet-20241022-cna0-x9",
+  // "claude-3-5-sonnet-20241022-cna0-x9",
   "claude-3-5-sonnet-20241022-cn-x9",
-  "claude-3-5-sonnet-20240620-cn2-x3",
+  // "claude-3-5-sonnet-20240620-cn2-x3",
 
   "gpt-4o-mini-cnad-x0.15",
   "gpt-4o-mini-cn3-x0.12",
@@ -546,8 +546,8 @@ export const CUSTOM_MODELS_BUILTIN = [
 
   "gemini-flash-1.5-8b-x0.3",
   "gemini-flash-1.5-x0.6",
-  "gemini-1.5-flash-cna2-x0.04",
-  "gemini-1.5-pro-cna2-x0.7",
+  // "gemini-1.5-flash-cna2-x0.04",
+  // "gemini-1.5-pro-cna2-x0.7",
   "gemini-pro-1.5-x10",
   "aistudio_free/gemini-flash-1.5",
   "aistudio_free/gemini-pro-1.5",
