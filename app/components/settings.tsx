@@ -543,7 +543,11 @@ function SyncItems() {
 
         <ListItem
           title={Locale.Settings.Sync.LocalState}
-          subTitle={Locale.Settings.Sync.Overview(stateOverview)}
+          subTitle={
+            <>
+              {Locale.Settings.Sync.Overview(stateOverview)} <StorageSize />
+            </>
+          }
         >
           <div style={{ display: "flex" }}>
             <IconButton
@@ -1662,4 +1666,67 @@ export function Settings() {
       </div>
     </ErrorBoundary>
   );
+}
+
+function StorageSize() {
+  const [size, setSize] = useState("");
+  function calculateIndexedDBSize(dbName: string) {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(dbName);
+
+      request.onsuccess = async function (event: any) {
+        const db = event.target.result;
+        const transaction = db.transaction(db.objectStoreNames, "readonly");
+        let totalSize = 0;
+
+        const promises = Array.from(db.objectStoreNames).map((storeName) => {
+          return new Promise((resolveStore) => {
+            const objectStore = transaction.objectStore(storeName);
+            const cursorRequest = objectStore.openCursor();
+            let storeSize = 0;
+
+            cursorRequest.onsuccess = function (event: any) {
+              const cursor = event.target.result;
+              if (cursor) {
+                const value = cursor.value;
+                // Convert value to JSON string and calculate its size
+                const jsonString = JSON.stringify(value);
+                storeSize += new Blob([jsonString]).size;
+
+                cursor.continue();
+              } else {
+                // No more entries, resolve this store's size
+                resolveStore(storeSize);
+              }
+            };
+
+            cursorRequest.onerror = function () {
+              console.error("Error reading object store:", storeName);
+              resolveStore(0); // Resolve with 0 size if there's an error
+            };
+          });
+        });
+
+        const sizes: any = await Promise.all(promises);
+        totalSize = sizes.reduce((acc: number, size: number) => acc + size, 0);
+
+        resolve(totalSize);
+      };
+
+      request.onerror = function () {
+        reject("Error opening database.");
+      };
+    });
+  }
+
+  // 示例用法
+  calculateIndexedDBSize("keyval-store")
+    .then((size: any) => {
+      setSize(`，\t数据总大小: ${(size / 1024).toFixed(2)} KB`);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+  return size;
 }
