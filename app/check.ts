@@ -21,7 +21,6 @@ export function Check() {
       ) {
         showToast("重复打开，继续操作将导致数据不一致，请手动关闭此页面！");
         showed = true;
-        window.close();
       }
     };
   }, []);
