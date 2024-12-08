@@ -560,6 +560,7 @@ export const CUSTOM_MODELS_BUILTIN = [
   "aistudio_free/gemini-pro-1.5",
   "aistudio_free/gemini-exp-1114",
   "aistudio_free/gemini-exp-1121",
+  "aistudio_free/gemini-exp-1206",
 
   "aistudio_prod/gemini-flash-1.5",
   "aistudio_prod/gemini-pro-1.5",
@@ -596,5 +597,5 @@ export const MODELS_HIGHLIGHT = [
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
   // "aistudio_free/gemini-pro-1.5",
-  "aistudio_free/gemini-exp-1121",
+  "aistudio_free/gemini-exp-1206",
 ];
