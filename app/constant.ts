@@ -581,7 +581,6 @@ export const CUSTOM_MODELS_BUILTIN = [
 export const MODELS_HIGHLIGHT = [
   "gpt-4o-2024-11-20-x20",
   "gpt-4o-x20",
-  "gpt-4o-2024-11-20-cn-x6.25",
   "bytedance/gpt-4o",
   "gpt-4o-cn2-x2.5",
 
