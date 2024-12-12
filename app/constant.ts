@@ -517,6 +517,20 @@ export const CUSTOM_MODELS_BUILTIN = [
   "gpt-4o-cna3-x3",
   "gpt-4o-cnaps-x5",
 
+  "aistudio_free/gemini-flash-1.5",
+  "aistudio_free/gemini-pro-1.5",
+  "aistudio_free/gemini-exp-1114",
+  "aistudio_free/gemini-exp-1121",
+  "aistudio_free/gemini-exp-1206",
+  "aistudio_free/gemini-2.0-flash-exp",
+
+  "aistudio_prod/gemini-flash-1.5",
+  "aistudio_prod/gemini-pro-1.5",
+  "aistudio_prod/gemini-exp-1114",
+  "aistudio_prod/gemini-exp-1121",
+  "aistudio_prod/gemini-exp-1206",
+  "aistudio_prod/gemini-2.0-flash-exp",
+
   "claude-3.5-sonnet-x24",
   "claude-3.5-haiku-x6.4",
   // "claude-3-5-sonnet-20241022-cna0-x9",
@@ -557,20 +571,6 @@ export const CUSTOM_MODELS_BUILTIN = [
   // "gemini-1.5-flash-cna2-x0.04",
   // "gemini-1.5-pro-cna2-x0.7",
 
-  "aistudio_free/gemini-flash-1.5",
-  "aistudio_free/gemini-pro-1.5",
-  "aistudio_free/gemini-exp-1114",
-  "aistudio_free/gemini-exp-1121",
-  "aistudio_free/gemini-exp-1206",
-  "aistudio_free/gemini-2.0-flash-exp",
-
-  "aistudio_prod/gemini-flash-1.5",
-  "aistudio_prod/gemini-pro-1.5",
-  "aistudio_prod/gemini-exp-1114",
-  "aistudio_prod/gemini-exp-1121",
-  "aistudio_prod/gemini-exp-1206",
-  "aistudio_prod/gemini-2.0-flash-exp",
-
   "qwen/qwq-32b-preview",
   "amazon/nova-pro-v1-x6.4",
   "amazon/nova-lite-v1-x0.48",
@@ -583,7 +583,7 @@ export const CUSTOM_MODELS_BUILTIN = [
 
 export const MODELS_HIGHLIGHT = [
   "gpt-4o-2024-11-20-x20",
-  "gpt-4o-x20",
+  // "gpt-4o-x20",
   "bytedance/gpt-4o",
   "gpt-4o-cn2-x2.5",
 
