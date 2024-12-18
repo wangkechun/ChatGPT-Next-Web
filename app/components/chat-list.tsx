@@ -141,7 +141,7 @@ export function ChatList(props: { narrow?: boolean }) {
           >
             {sessions.map((item, i) => (
               <ChatItem
-                title={getTopic(item)}
+                title={getTopic2(item)}
                 time={new Date(item.lastUpdate).toLocaleString()}
                 count={item.messages.length}
                 key={item.id}
@@ -170,6 +170,16 @@ export function ChatList(props: { narrow?: boolean }) {
       </Droppable>
     </DragDropContext>
   );
+}
+
+function getTopic2(item: ChatSession): string {
+  if (location.href.includes("show_size")) {
+    const lengthKB = parseFloat(
+      (JSON.stringify(item).length / 1024).toFixed(2),
+    );
+    return `${lengthKB}KB ${getTopic(item)}`;
+  }
+  return `${getTopic(item)}`;
 }
 
 function getTopic(item: ChatSession): string {
