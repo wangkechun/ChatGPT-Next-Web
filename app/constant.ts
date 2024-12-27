@@ -558,6 +558,7 @@ export const CUSTOM_MODELS_BUILTIN = [
   "online-huge-x40",
   "online-large-x8",
   "online-small-x1.6",
+  "deepseek/deepseek-chat",
 
   "gemini-flash-1.5-8b-x0.3",
   "gemini-flash-1.5-x0.6",
@@ -592,6 +593,7 @@ export const MODELS_HIGHLIGHT = [
   // "o1-preview-cna3-x18",
   // "o1-preview-cn3-xn0.2",
   "online-large-x8",
+  "deepseek/deepseek-chat",
 
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
