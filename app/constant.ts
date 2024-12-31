@@ -509,14 +509,6 @@ export const CUSTOM_MODELS_BUILTIN = [
   "gpt-4o-2024-11-20-cn-x6.25",
   "bytedance/gpt-4o",
 
-  "gpt-4o-cn2-x2.5",
-  "gpt-4o-cn-x6.25",
-
-  "gpt-4o-cna1-x1.8",
-  // "gpt-4o-cna2-x1.5",
-  "gpt-4o-cna3-x3",
-  "gpt-4o-cnaps-x5",
-
   "aistudio_free/gemini-flash-1.5",
   "aistudio_free/gemini-pro-1.5",
 
@@ -528,51 +520,23 @@ export const CUSTOM_MODELS_BUILTIN = [
 
   "claude-3.5-sonnet-x24",
   "claude-3.5-haiku-x6.4",
-  // "claude-3-5-sonnet-20241022-cna0-x9",
-  "claude-3-5-sonnet-20241022-cn-x9",
-  // "claude-3-5-sonnet-20240620-cn2-x3",
 
-  "gpt-4o-mini-cnad-x0.15",
-  "gpt-4o-mini-cn3-x0.12",
-  "gpt-4o-mini-cn-x0.375",
   "gpt-4o-mini-x1.2",
 
   "o1-cn-xn0.2",
   "o1-pro-cn-xn0.4",
 
-  // "o1-mini-cna1-x2.2",
-  "o1-mini-cna3-x3.6",
-  "o1-mini-cnaps-x6",
-  "o1-mini-cn-x6",
-  "o1-mini-cn3-xn0.1",
   "o1-mini-x24",
-
-  // "o1-preview-cna1-x11",
-  // "o1-preview-cna3-x18",
-  // "o1-preview-cnaps-x30",
-  // "o1-preview-cn3-xn0.2",
-  // "o1-preview-all-cna2-xn0.18",
-  // "o1-preview-cn-x30",
-  // "o1-preview-x120",
 
   "online-huge-x40",
   "online-large-x8",
   "online-small-x1.6",
+
   "deepseek/deepseek-chat",
 
   "gemini-flash-1.5-8b-x0.3",
   "gemini-flash-1.5-x0.6",
   "gemini-pro-1.5-x10",
-
-  // "gemini-1.5-flash-cna2-x0.04",
-  // "gemini-1.5-pro-cna2-x0.7",
-
-  "qwen/qwq-32b-preview",
-  "amazon/nova-pro-v1-x6.4",
-  "amazon/nova-lite-v1-x0.48",
-  "amazon/nova-micro-v1-x0.28",
-
-  "meta-llama/llama-3.3-70b-instruct-x1",
 
   "copy",
 ].join(",");
@@ -585,13 +549,10 @@ export const MODELS_HIGHLIGHT = [
 
   "claude-3.5-sonnet-x24",
 
-  // "o1-mini-cna3-x3.6",
-  // "o1-mini-x24",
   "o1-mini-cn3-xn0.1",
   "o1-cn-xn0.2",
   "o1-pro-cn-xn0.4",
-  // "o1-preview-cna3-x18",
-  // "o1-preview-cn3-xn0.2",
+
   "online-large-x8",
   "deepseek/deepseek-chat",
 
