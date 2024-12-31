@@ -550,8 +550,8 @@ export const MODELS_HIGHLIGHT = [
   "claude-3.5-sonnet-x24",
 
   "o1-mini-cn3-xn0.1",
-  "o1-cn-xn0.2",
-  "o1-pro-cn-xn0.4",
+  "o1-cn-xn0.4",
+  "o1-pro-cn-xn0.7",
 
   "online-large-x8",
   "deepseek/deepseek-chat",
